@@ -4,6 +4,7 @@ exports.index = async (req,res) => {res.render('product')};
 
 exports.search = async (req,res) => woo.getProducts({'search':req.body.query})
 .then(async (result) => {
+
     return res.send(result.data)}
 )
 .catch((error) => res.status(422).send(error.message));
@@ -45,6 +46,7 @@ exports.createProduct = async (req, res) => {
     var data = {
         name: req.body.name,
         price: req.body.price,
+        regular_price: req.body.price,
         description: req.body.description
     }
     woo.createProduct(data).then(async (result) => {

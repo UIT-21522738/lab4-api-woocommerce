@@ -15,10 +15,11 @@
             $.post("/products/search", { query: query }, function(data) {
                 let htmlContent = '';
                 data.forEach(function (d) {
+                    let img =  d.images.length === 0 ? '' : d.images[0].src
                     htmlContent += `
                         <div class="">
                             <tr class="">
-                                <td><img width='70px' height='auto' src="${d.images[0].src}" alt=""></td>
+                                <td><img width='70px' height='auto' src="${img}" alt=""></td>
                                 <td class="">
                                     <h5 class="title">${d.name}</h5>
                                     <p class="price">${d.price}</p>
