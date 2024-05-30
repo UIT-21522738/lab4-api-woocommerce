@@ -9,7 +9,7 @@ exports.search = async (req,res) => woo.getProducts({'search':req.body.query})
 )
 .catch((error) => res.status(422).send(error.message));
 
-exports.getProducts = async (req, res) => woo.getProducts()
+exports.getProducts = async (req, res) => woo.getProducts({'per_page': 80})
 .then(async (result) => {
     return res.render('products.hbs', {products: result.data})}
 )
@@ -34,7 +34,7 @@ exports.deleteProducts = async (req, res) => {
 exports.updateProducts = async (req, res) => {
     let id = req.body.id;
     let price = req.body.new_price;
-    woo.updateProduct(id, {price: price, sale_price: price}).then(async (result) => {
+    woo.updateProduct(id, {price: price, regular_price: price}).then(async (result) => {
         res.send('success')
     })
     .catch(async (err) => {res.send(err.message)});;
@@ -50,6 +50,6 @@ exports.createProduct = async (req, res) => {
         description: req.body.description
     }
     woo.createProduct(data).then(async (result) => {
-        res.send('success');
+        res.redirect('/products/all');
     }).catch(err => {res.send(err.message)});
 }

@@ -16,7 +16,7 @@ exports.create = async (req, res) => {
         password: req.body.password
     }
     woo.createCustomer(data).then(function (result) {
-        return res.send('success');
+        return res.redirect('/users');
     }) .catch(function (err) {
         return res.send(err)
     })

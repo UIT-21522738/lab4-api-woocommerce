@@ -1,20 +1,80 @@
-<form action="/category/create" method="post">
-<label for="">tên</label>
-<input type="text" name="name">
-<input type="submit" value="Thêm">
-</form>
-
-<br>
-<h2>List all categories</h2>
-{{#each categories}}
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    {{!-- <img src="{{images.[0].src}}" class="card-img-top" alt="{{name}}"> --}}
-                    <div class="card-body">
-                        <h5 class="card-title">name: {{name}}</h5>
-                        <p class="card-text">count: {{count}}</p>
-                        {{{description}}}
-                    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Danh Mục Sản Phẩm</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .btn-submit {
+            background-color: #ff5722;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #e64a19;
+        }
+        .category-list {
+            margin-top: 50px;
+        }
+        .card {
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container shadow-sm">
+            <h2 class="text-center">Thêm Danh Mục Sản Phẩm</h2>
+            <form action="/category/create" method="post">
+                <div class="form-group">
+                    <label for="name">Tên danh mục</label>
+                    <input type="text" name="name" class="form-control" id="name" required>
                 </div>
+                <button type="submit" class="btn-submit">Thêm</button>
+            </form>
+        </div>
+
+        <div class="category-list">
+            <h2>List all categories</h2>
+            <div class="row">
+                {{#each categories}}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Tên: {{name}}</h5>
+                                <p class="card-text">Số lượng: {{count}}</p>
+                                <div class="card-description">
+                                    {{{description}}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
             </div>
-{{/each}}
+        </div>
+    </div>
+</body>
+</html>

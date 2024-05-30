@@ -1,9 +1,60 @@
-<form action="/products/create" method="post">
-<label for="">Tên sản phẩm</label>
-<input type="text" name="name" class="name"> <br>
-<label for="">giá</label>
-<input type="text" name="price" class="price"> <br>
-<label for="">mô tả</label>
-<input type="text" name="description" class="description"> <br>
-<input type="submit" value="Thêm sản phẩm">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm Sản Phẩm</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .btn-submit {
+            background-color: #ff5722;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container shadow-sm">
+            <h2 class="text-center">Thêm Sản Phẩm</h2>
+            <form action="/products/create" method="post">
+                <div class="form-group">
+                    <label for="name">Tên sản phẩm</label>
+                    <input type="text" name="name" class="form-control" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Giá</label>
+                    <input type="text" name="price" class="form-control" id="price" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Mô tả</label>
+                    <textarea name="description" class="form-control" id="description" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Thêm sản phẩm</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

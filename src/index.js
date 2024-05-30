@@ -11,7 +11,7 @@ const route = require('./routes/index');
 // app.use(helmet())
 
 app.use(cors());
-const port = 3000
+const port = 4000
 app.use(express.static(path.join(__dirname, 'public')));
 
 //middleware

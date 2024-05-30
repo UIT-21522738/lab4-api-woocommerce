@@ -13,7 +13,7 @@ exports.create = async (req, res) => {
     }
     woo.createCategory(data).then(function (result) {
         console.log(result)
-        return res.send('success');
+        return res.redirect('/category');
     }) .catch(function (err) {
         return res.send(err)
     })

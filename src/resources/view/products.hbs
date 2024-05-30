@@ -1,17 +1,43 @@
-<h1 class="my-4">WooCommerce Products</h1>
-    <div class="row">
-        {{#each products}}
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    {{!-- <img src="{{images.[0].src}}" class="card-img-top" alt="{{name}}"> --}}
-                    <div class="card-body">
-                        <img src="{{images.[0].src}}" alt="">
-                        <h5 class="card-title">{{name}}</h5>
-                        <p class="card-text">{{price}}</p>
-                        {{{description}}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WooCommerce Products</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .card-body img {
+            width: 100%;
+            height: auto;
+        }
+        .card {
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-4">
+        <h1 class="my-4">WooCommerce Products</h1>
+        <div class="row">
+            {{#each products}}
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="{{images.[0].src}}" class="card-img-top" alt="{{name}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{name}}</h5>
+                            <p class="card-text">{{price}}</p>
+                            <div class="card-description">
+                                {{{description}}}
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {{/each}}
+            {{/each}}
+        </div>
     </div>
-</div>
+</body>
+</html>
+
